@@ -33,7 +33,7 @@ def fetch_apod_images(url, token):
     for foto_number, foto in enumerate(apod_images):
         foto = foto['url']
         extension = get_file_extension(foto)
-        save_image(foto, './images/apod{}.{}'.format(foto_number, extension))
+        save_image(foto, './images/apod{}{}'.format(foto_number, extension))
 
 
 def fetch_epic_images(url, token):
