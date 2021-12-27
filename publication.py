@@ -17,7 +17,11 @@ def main():
     while True:
         random_image = choice(images)
         image_path = os.path.join('./images', random_image)
-        bot.send_photo(chat_id=chat_id, photo=open(image_path, 'rb'))
+
+        with open(image_path, 'rb') as file:
+            photo = file
+            bot.send_photo(chat_id=chat_id, photo=photo)
+
         time.sleep(time_step)
 
 if __name__ == '__main__':
