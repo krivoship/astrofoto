@@ -1,13 +1,6 @@
 import requests
 from pathlib import Path
-
-
-def save_image(url, path):
-    response = requests.get(url)
-    response.raise_for_status()
-
-    with open(path, 'wb') as file:
-        file.write(response.content)
+from api_helpers import save_image
 
 
 def fetch_spacex_last_launch(url):

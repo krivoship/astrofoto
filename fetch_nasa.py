@@ -1,16 +1,9 @@
 import requests
+import os
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
-import os
 from dotenv import load_dotenv
-
-
-def save_image(url, path, params=None):
-    response = requests.get(url, params=params)
-    response.raise_for_status()
-
-    with open(path, 'wb') as file:
-        file.write(response.content)
+from api_helpers import save_image
 
 
 def get_file_extension(url):

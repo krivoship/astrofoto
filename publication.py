@@ -1,7 +1,7 @@
 import telegram
 import os
-from random import choice
 import time
+from random import choice
 from dotenv import load_dotenv
 
 
