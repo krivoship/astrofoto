@@ -4,9 +4,7 @@ from api_helpers import save_image
 
 
 def fetch_spacex_last_launch(url):
-    payload, headers = {}, {}
-
-    response = requests.get(url, headers=headers, data=payload)
+    response = requests.get(url)
     response.raise_for_status()
 
     spacex_images = response.json()['links']['flickr_images']
