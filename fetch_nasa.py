@@ -32,7 +32,7 @@ def fetch_apod_images(url, token):
 def fetch_epic_images(url, token):
     params = {'api_key': token}
 
-    response = requests.get(url+'/api/natural', params=params)
+    response = requests.get('{}/api/natural'.format(url), params=params)
     response.raise_for_status()
 
     epic_data = response.json()
@@ -44,7 +44,7 @@ def fetch_epic_images(url, token):
 
     for number, image in enumerate(epic_images[:7]):
         image, date = image[0], image[1]
-        link = url+'/archive/natural/'+date+'/png/'+image+'.png'
+        link = '{}/archive/natural/{}/png/{}.png'.format(url, date, image)
         save_image(link, './images/epic{}.png'.format(number), params=params)
 
 
