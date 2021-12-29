@@ -9,11 +9,11 @@ def fetch_spacex_last_launch(url):
 
     spacex_images = response.json()['links']['flickr_images']
     for foto_number, foto in enumerate(spacex_images):
-        save_image(foto, './images/spacex{}.jpg'.format(foto_number))
+        save_image(foto, 'images/spacex{}.jpg'.format(foto_number))
 
 
 def main():
-    Path("./images").mkdir(parents=True, exist_ok=True)
+    Path("images").mkdir(parents=True, exist_ok=True)
     url = "https://api.spacexdata.com/v3/launches/67"
     fetch_spacex_last_launch(url)
 

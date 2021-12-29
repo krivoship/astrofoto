@@ -26,7 +26,7 @@ def fetch_apod_images(url, token):
     for foto_number, foto in enumerate(apod_images):
         foto = foto['url']
         extension = get_file_extension(foto)
-        save_image(foto, './images/apod{}{}'.format(foto_number, extension))
+        save_image(foto, 'images/apod{}{}'.format(foto_number, extension))
 
 
 def fetch_epic_images(url, token):
@@ -45,13 +45,13 @@ def fetch_epic_images(url, token):
     for number, image in enumerate(epic_images[:7]):
         image, date = image[0], image[1]
         link = '{}/archive/natural/{}/png/{}.png'.format(url, date, image)
-        save_image(link, './images/epic{}.png'.format(number), params=params)
+        save_image(link, 'images/epic{}.png'.format(number), params=params)
 
 
 def main():
     load_dotenv()
     nasa_token = os.getenv("NASA_TOKEN")
-    Path("./images").mkdir(parents=True, exist_ok=True)
+    Path("images").mkdir(parents=True, exist_ok=True)
 
     apod_url = 'https://api.nasa.gov/planetary/apod'
     epic_url = 'https://api.nasa.gov/EPIC'

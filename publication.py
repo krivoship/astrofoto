@@ -11,12 +11,12 @@ def main():
     chat_id = os.getenv("CHAT_ID")
     time_step = int(os.getenv("TIME_STEP", 24*60*60))
 
-    images = os.listdir('./images')
+    images = os.listdir('images')
     bot = telegram.Bot(token=tg_token)
 
     while True:
         random_image = choice(images)
-        image_path = os.path.join('./images', random_image)
+        image_path = os.path.join('images', random_image)
 
         with open(image_path, 'rb') as file:
             bot.send_photo(chat_id=chat_id, photo=file)
