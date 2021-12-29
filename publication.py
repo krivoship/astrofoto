@@ -19,8 +19,7 @@ def main():
         image_path = os.path.join('./images', random_image)
 
         with open(image_path, 'rb') as file:
-            photo = file
-            bot.send_photo(chat_id=chat_id, photo=photo)
+            bot.send_photo(chat_id=chat_id, photo=file)
 
         time.sleep(time_step)
 
